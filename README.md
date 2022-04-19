@@ -334,7 +334,7 @@ from pyspark.ml.evaluation import BinaryClassificationEvaluator
 from pyspark.ml.linalg import DenseVector
 
 ```
-Dividing data into traning and testing sets 
+Dividing data into training and testing sets 
 
 ```
 training_df = dfff.rdd.map(lambda x: (DenseVector(x[0:29]),x[30],x[31])) # Dense Vector required in spark to train the data
@@ -365,7 +365,8 @@ test_data.groupBy("label").count().show()
 
 ```
 
-Using Classifiers -- I am going to use GBTClassifier-- However you free to use any type of Classifiers such as LogisticR and other types and compare your results with the one found here.
+Using Classifiers -- GBTClassifier
+
 ```
 gbt = GBTClassifier(featuresCol="features", maxIter=100,maxDepth=8)
 model = gbt.fit(train_data)
